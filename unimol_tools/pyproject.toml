@@ -8,7 +8,7 @@ version = "0.2.0.post2"
 description = "Tools for Uni-Mol."
 license = "MIT"
 readme = "README.md"
-authors = [{ name = "DP Technology", email = "unimol@dp.tech" }]
+authors = [{name = "Jonathan Welch", email = "jonathan@albertinvent.com"},{ name = "DP Technology", email = "unimol@dp.tech" }]
 requires-python = ">=3.10,<4.0"
 dependencies = [
     "numpy >=1.22.4,<3.0.0",
