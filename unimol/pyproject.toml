@@ -27,6 +27,9 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 
+[tool.hatch.build]
+packages = ["unimol"]
+
 [dependency-groups]
 dev = ["jupyter>=1.1.1", "pytest>=8.3.4", "ruff>=0.8.1"]
 
