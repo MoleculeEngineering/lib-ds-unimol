@@ -71,32 +71,26 @@ workflows:
           name: Setup
           context: ds-dev
       - test:
-          name: Test unimol
-          package_subpath: unimol
-          context: ds-dev
-          requires:
-            - Setup
-      - test:
-          name: Test unimol tools
-          package_subpath: unimol_tools
+          matrix:
+            parameters:
+              package_subpath:
+                - unimol
+                - unimol_tools
+          name: Test << parameters.package_subpath >>
           context: ds-dev
           requires:
             - Setup
       - publish:
-          name: Publish unimol
-          package_subpath: unimol
+          matrix:
+            parameters:
+              package_subpath:
+                - unimol
+                - unimol_tools
+          name: Publish << parameters.package_subpath >>
+          package_subpath: << parameters.package_subpath >>
           context: ds-dev
           requires:
-            - Test unimol
-          filters:
-            branches:
-              only: ["main"]
-      - publish:
-          name: Publish unimol tools
-          package_subpath: unimol_tools
-          context: ds-dev
-          requires:
-            - Test unimol tools
+            - Test << parameters.package_subpath >>
           filters:
             branches:
               only: ["main"]
