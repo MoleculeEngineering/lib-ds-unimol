@@ -11,7 +11,7 @@ readme = "README.md"
 authors = [{ name = "DP Technology", email = "unimol@dp.tech" }]
 requires-python = ">=3.10,<4.0"
 dependencies = [
-    "numpy >=2.1.1",
+    "numpy >=2.0.2",
     "pandas >=2.2.3",
     "scikit-learn-extra >=0.3.0",
 ]
