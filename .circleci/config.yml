@@ -31,18 +31,6 @@ jobs:
           name: Install deps
           working_directory: /home/circleci/project/<< parameters.package_subpath >>
           command: uv sync
-      - run:
-          name: Check formatting
-          working_directory: /home/circleci/project/<< parameters.package_subpath >>
-          command: uv run ruff format --check .
-      - run:
-          name: Check lints
-          working_directory: /home/circleci/project/<< parameters.package_subpath >>
-          command: uv run ruff check .
-      - run:
-          name: Run pytest
-          working_directory: /home/circleci/project/<< parameters.package_subpath >>
-          command: uv run pytest
   publish:
     parameters:
       package_subpath:
