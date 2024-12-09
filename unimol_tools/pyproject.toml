@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "unimol_tools"
-version = "0.2.0.post2"
+version = "0.2.1"
 description = "Tools for Uni-Mol."
 license = "MIT"
 readme = "README.md"
