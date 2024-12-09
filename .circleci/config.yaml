@@ -29,19 +29,19 @@ jobs:
           at: /home/circleci
       - run:
           name: Install deps
-          working_directory: /home/circleci/<< parameters.package_subpath >>
+          working_directory: /home/circleci/project/<< parameters.package_subpath >>
           command: uv sync
       - run:
           name: Check formatting
-          working_directory: /home/circleci/<< parameters.package_subpath >>  
+          working_directory: /home/circleci/project/<< parameters.package_subpath >>
           command: uv run ruff format --check .
       - run:
           name: Check lints
-          working_directory: /home/circleci/<< parameters.package_subpath >>
+          working_directory: /home/circleci/project/<< parameters.package_subpath >>
           command: uv run ruff check .
       - run:
           name: Run pytest
-          working_directory: /home/circleci/<< parameters.package_subpath >>
+          working_directory: /home/circleci/project/<< parameters.package_subpath >>
           command: uv run pytest
   publish:
     parameters:
@@ -55,11 +55,11 @@ jobs:
           at: /home/circleci
       - run:
           name: Build package
-          working_directory: /home/circleci/<< parameters.package_subpath >>
+          working_directory: /home/circleci/project/<< parameters.package_subpath >>
           command: uv build
       - run:
           name: Publish package
-          working_directory: /home/circleci/<< parameters.package_subpath >>
+          working_directory: /home/circleci/project/<< parameters.package_subpath >>
           command: |
             uv publish --publish-url $ALBERT_PYPI_URL --username $UV_INDEX_ALBERT_USERNAME \
               --password $UV_INDEX_ALBERT_PASSWORD
@@ -87,7 +87,6 @@ workflows:
                 - unimol
                 - unimol_tools
           name: Publish << parameters.package_subpath >>
-          package_subpath: << parameters.package_subpath >>
           context: ds-dev
           requires:
             - Test << parameters.package_subpath >>
