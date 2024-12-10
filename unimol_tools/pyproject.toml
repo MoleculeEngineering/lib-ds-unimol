@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "unimol_tools"
-version = "0.2.1"
+version = "0.2.2"
 description = "Tools for Uni-Mol."
 license = "MIT"
 readme = "README.md"
@@ -20,6 +20,7 @@ dependencies = [
     "rdkit>=2024.3.5",
     "pyyaml>=6.0.2",
     "addict>=2.4.0",
+    "numba>=0.60.0",
 ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
